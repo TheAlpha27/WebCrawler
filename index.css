@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#head {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    font-size: 1.7em;
+    padding: 1rem;
+}
+
+.links,
+.result {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    min-width: 24em;
+    height: 27em;
+    overflow: auto;
+    font-size: 1.3em;
+    margin: 2rem;
+    padding: 2rem;
+}
