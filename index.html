@@ -6,29 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebCrawler Sample Markup</title>
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
         .container{
             display: flex;
             justify-content: space-evenly;
+            flex-wrap: wrap;
+            flex-direction: row;
         }
-        .links{
+        #head{
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            font-size: 1.7em;
+            padding: 1rem;
+        }
+        .links, .result{
             border: 2px solid black;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            /* justify-content: center; */
             align-items: center;
-            width: 35vw;
-            height: fit-content;
-            font-size: 20px;
-        }
-        .result{
-            border: 2px solid black;
-            width: 35vw;
-            height: fit-content;
+            width: 24em;
+            height: 27em;
+            overflow: auto;
+            font-size: 1.3em;
+            margin: 2rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div id="head"><h1>WebCrawler</h1></div>
     <div class="links">
         <h1>All links:</h1>
         <ul>
@@ -55,9 +66,14 @@
         </ul>
     </div>
     <div class="result">
+        <div class="search"><input type="text" placeholder="Enter Keyword">
+            <input type="button" value="search"></div>
         <h1>Results:</h1>
-        <input type="text" placeholder="Enter Keyword">
-        <input type="button" value="search">
+        <div class="RE">
+            <ul class="resUL">
+
+            </ul>
+        </div>
     </div>
 </div>
 </body>
