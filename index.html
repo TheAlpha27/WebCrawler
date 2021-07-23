@@ -1,80 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebCrawler Sample Markup</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
-        .container{
+
+        .container {
             display: flex;
             justify-content: space-evenly;
             flex-wrap: wrap;
             flex-direction: row;
         }
-        #head{
+
+        #head {
             width: 100vw;
             display: flex;
             justify-content: center;
             font-size: 1.7em;
             padding: 1rem;
         }
-        .links, .result{
+
+        .links,
+        .result {
             border: 2px solid black;
             display: flex;
             flex-direction: column;
-            /* justify-content: center; */
             align-items: center;
-            width: 24em;
+            width: fit-content;
+            min-width: 24em;
             height: 27em;
             overflow: auto;
             font-size: 1.3em;
             margin: 2rem;
+            padding: 2rem;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <div id="head"><h1>WebCrawler</h1></div>
-    <div class="links">
-        <h1>All links:</h1>
-        <ul>
-            <li><a href="www.google.com/python">link1: </a>www.google.com/python</li>
-            <li><a href="www.youtube.com/python">link2: </a>www.youtube.com/python</li>
-            <li><a href="www.gui.com">link3: </a>www.gui.com</li>
-            <li><a href="www.facebook.com">link4: </a>www.facebook.com</li>
-            <li><a href="www.python.com">link5: </a>www.python.com</li>
-            <li><a href="cpp.com">link6: </a>cpp.com</li>
-            <li><a href="www.c++.com">link7: </a>www.c++.com</li>
-            <li><a href="www.garbage.com">link8: </a>www.garbage.com</li>
-            <li><a href="www.myprofile.org">link9: </a>www.myprofile.org</li>
-            <li><a href="www.nativeReact.com">link10: </a>www.nativeReact.com</li>
-            <li><a href="www.react.com">link11: </a>www.react.com</li>
-            <li><a href="www.py.com/pythonIDE">link12: </a>www.py.com/pythonIDE</li>
-            <li><a href="www.abc.com/javascript">link13: </a>www.abc.com/javascript</li>
-            <li><a href="www.w3schools.com/css">link14: </a>www.w3schools.com/css</li>
-            <li><a href="www.codewithharry.com">link15: </a>www.codewithharry.com</li>
-            <li><a href="www.javascriptProjects.com/project2">link16: </a>www.javascriptProjects.com/project2</li>
-            <li><a href="www.github.com/TheAlpha27">link17: </a>www.github.com/TheAlpha27</li>
-            <li><a href="www.github.com/javascript">link18: </a>www.github.com/javascript</li>
-            <li><a href="www.youtube.com/alpha27gtr">link19: </a>www.youtube.com/alpha27gtr</li>
-            <li><a href="www.origin.co.in">link20: </a>www.origin.co.in</li>
-        </ul>
-    </div>
-    <div class="result">
-        <div class="search"><input type="text" placeholder="Enter Keyword">
-            <input type="button" value="search"></div>
-        <h1>Results:</h1>
-        <div class="RE">
-            <ul class="resUL">
-
+        <div id="head">
+            <h1>WebCrawler</h1>
+        </div>
+        <div class="links">
+            <h1>All links:</h1>
+            <ul>
+                <li><a href="www.google.com">link1: </a>www.google.com</li>
+                <li><a href="www.youtube.com">link2: </a>www.youtube.com</li>
+                <li><a href="www.gui.com">link3: </a>www.gui.com</li>
+                <li><a href="www.facebook.com">link4: </a>www.facebook.com</li>
+                <li><a href="www.python.com">link5: </a>www.python.com</li>
+                <li><a href="www.cpp.com">link6: </a>www.cpp.com</li>
+                <li><a href="www.c++.com">link7: </a>www.c++.com</li>
+                <li><a href="www.garbage.com">link8: </a>www.garbage.com</li>
+                <li><a href="www.myprofile.org">link9: </a>www.myprofile.org</li>
+                <li><a href="www.nativeReact.com">link10: </a>www.nativeReact.com</li>
+                <li><a href="www.react.com">link11: </a>www.react.com</li>
+                <li><a href="www.py.com/pythonIDE">link12: </a>www.py.com/pythonIDE</li>
+                <li><a href="www.abc.com/javascript">link13: </a>www.abc.com/javascript</li>
+                <li><a href="www.w3schools.com/css">link14: </a>www.w3schools.com/css</li>
+                <li><a href="www.codewithharry.com">link15: </a>www.codewithharry.com</li>
+                <li><a href="www.javascriptProjects.com/project2">link16: </a>www.javascriptProjects.com/project2</li>
+                <li><a href="www.github.com/TheAlpha27">link17: </a>www.github.com/TheAlpha27</li>
+                <li><a href="www.github.com/javascript">link18: </a>www.github.com/javascript</li>
+                <li><a href="www.youtube.com/alpha27gtr">link19: </a>www.youtube.com/alpha27gtr</li>
+                <li><a href="www.origin.co.in">link20: </a>www.origin.co.in</li>
             </ul>
         </div>
+        <div class="result">
+            <div class="search"><input type="text" id="inp" placeholder="Enter Keyword">
+                <input type="button" value="fetch" onclick="search()">
+            </div>
+            <h1>Fetched Results:</h1>
+            <div class="RE">
+                <ul id="resUL">
+
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
+    <script>
+        let lin = document.links;
+        console.log(lin);
+        let arr = Array.from(lin);
+        function search() {
+            let list = document.getElementById("resUL");
+            let linkCount = 0;
+            list.innerHTML = "";
+            let str = document.getElementById("inp").value;
+            arr.forEach(function (element) {
+                let link = element.href;
+                if (link.includes(str)) {
+                    list.innerHTML = list.innerHTML + "<li>" + link + "</li>";
+                    console.log(link);
+                    linkCount++;
+                }
+            });
+            list.innerHTML = "<h2>" + "Total number of links found:"+ linkCount + "</h2>" + list.innerHTML;
+            return true;
+        }
+    </script>
 </body>
 </html>
